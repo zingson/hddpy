@@ -21,7 +21,8 @@ def encrypt(info):
 
 # 解密
 def decrypt(info):
-    decode_info = b64decode(info.encode())  # 通过base64解码成二进制bytes
+    e = info.encode()
+    decode_info = b64decode(e)  # 通过base64解码成二进制bytes
     decode_info = sm2_crypt.decrypt(decode_info).decode(encoding="utf-8")
     return decode_info
 
@@ -45,7 +46,7 @@ def byte2str(msg):  # byte数组转字符串
 
 # sm3_f_name = input("your file name: ")
 # sm3_f_name='to_unipay_权益白名单0903.txt'
-sm3_f_name = 'D:\\netdisk\\Company\\上海纽安数据服务有限公司\\20-项目资料\\宁波银联\\20210825-宁波民生银行\\文件交换实例-v1.1\\to_unipay_权益白名单0903.txt'
+sm3_f_name = 'YHK_MS_20210922.txt'
 # 重新解密
 
 data_file = open(sm3_f_name, "r", encoding="UTF-8")

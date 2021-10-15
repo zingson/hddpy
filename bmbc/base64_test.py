@@ -7,3 +7,11 @@ s = """
 """
 s = s.strip()
 print(b64encode(s.encode(encoding='utf-8')))
+print(b64encode(s.encode(encoding='utf-8')).decode('utf-8'))
+
+
+v = "vnw"
+v1 = v.encode()
+print(v1)
+v2 = v1.decode()
+print(v2)
