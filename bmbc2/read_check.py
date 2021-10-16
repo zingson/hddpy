@@ -7,7 +7,7 @@ import os, sys
 
 # sm2的公私钥(16进制)
 SM2_PRIVATE_KEY = ''
-SM2_PUBLIC_KEY = 'fea65b9fd9d416d471273180462f529c1f46cd68038b14795f3cd5c9b7ed014ae461ef51a2db77dcf62337cfe01172790645997e0d6c0d1741e84b2c34fff595'
+SM2_PUBLIC_KEY = '8f5ba7cf46a602e73422c016fad50fba88febf5dae4813bd45752a3ffc7eb3cf0accc91fee7004b0643c783b32e8a4222979be6e0322e27c27e57439dda7d493'
 
 sm2_crypt = sm2.CryptSM2(public_key=SM2_PUBLIC_KEY, private_key=SM2_PRIVATE_KEY)
 
@@ -56,20 +56,23 @@ varstr = content.split('=====')
 f_content = varstr[0].strip()
 zy_contenet = varstr[1].strip()
 
-# print("【文件内容】\n"+f_content)
+print("【文件内容】\n"+f_content)
 print("【签名】\n" + zy_contenet)
 
 # des_sm3=decrypt(en_str[1])
 is_ver = sm2_crypt.verify(zy_contenet, f_content.encode(encoding="utf-8"))  # 摘要与签名验证
 
+is2 = sm2_crypt.verify("c4fb33dcbc4ff101e0991e544a7e3b819b3021880cb8e084cba3b99b31e30372d516e7bb28edb939c0fd0e290823173d6a4ec97128dbee024c3f15a90c5c228d","123".encode(encoding="utf-8"))
+print(is2)
+
 # print("【签名解密】\n"+ des_sm3)
 
 if is_ver:
     print("文件正确\n")
-    ck_file_name = "checked_" + sm3_f_name
-    ck_file = open(ck_file_name, "w", encoding="UTF-8")
-    ck_file.write(f_content)
-    ck_file.close()
+    #ck_file_name = "checked_" + sm3_f_name
+    #ck_file = open(ck_file_name, "w", encoding="UTF-8")
+    #ck_file.write(f_content)
+    #ck_file.close()
 
 else:
     print("文件错误正确\n")

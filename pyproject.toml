@@ -15,6 +15,7 @@ python = "^3.8"
 requests = "^2.25.1"
 APScheduler = "^3.7.0"
 pandas = "^1.2.4"
+rsa = "^4.7.2"
 
 [tool.poetry.dev-dependencies]
 
